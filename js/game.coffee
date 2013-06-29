@@ -4,7 +4,13 @@ $(document).ready ->
 
   $('#story').on 'click', (e) ->
     if (step >= getScene().script.length) then return
-    $('#story').fadeOut('slow', -> $(story).html(getScene().script[step++]).fadeIn())
+    $('#story').fadeOut('slow', -> $(this).html(renderLine(getScene().script[step++])).fadeIn())
+
+  # Utilities
+
+  renderLine = (script) ->
+    '<span class="who ' + script.who + '">' + script.who + '</span>' + script.line
+  # TODO: persist (to LocalStorage with crypting)
 
   # Load scene
 
@@ -12,9 +18,10 @@ $(document).ready ->
     {
       'id': 'some-slugified-name-to-remember'
       'background': 'orangered',
+      #TODO: font color
       'script': [
-        'kvaak',
-        'wraa',
+        { who: 'me', line: "Lus?" },
+        { who: 'Losoposki', line: "Luus."},
       ]
     }
 
@@ -25,4 +32,4 @@ $(document).ready ->
   # Initialize the scene
 
   $('body').attr('style', 'background-color: ' + getScene().background)
-  $('#story').html(getScene().script[0])
+  $('#story').html(renderLine(getScene().script[0]))

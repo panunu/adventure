@@ -13,6 +13,24 @@
   ],
 
   'actions': [
-    { target: 'some-slugified-name-to-remember', 'action': 'Continue' }
+    { goto: 'act1_other_scene', 'label': 'Continue' }
+  ]
+}
+
+@act1_other_scene = {
+  'background': '#111',
+  'foreground': 'orangered',
+  'icon': 'fire'
+
+  'script': [
+    { who: 'narrator', line: "The fire warms you." },
+    { who: 'me', line: "What just happened?" },
+    { who: 'me', line: "..." },
+    { who: 'me', line: "Hello?" },
+    { who: 'narrator', line: "All you hear is silence. You feel at unease." },
+  ],
+
+  'actions': [
+    { goto: 'act1_some_name', 'label': 'Continue' }
   ]
 }

@@ -19,6 +19,8 @@ body {
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   font-smooth: always;
+
+  -webkit-transition: background-color 2s;
 }
 
 .container {
@@ -82,7 +84,7 @@ body {
   text-align: center;
   font-size: 8em;
 
-  opacity: 0.1;
+  opacity: 0.2;
   z-index: 1;
 
   .content {
@@ -95,9 +97,9 @@ body {
   text-align: center;
 
   a {
+    display: inline-block;
     position: relative;
     top: -25px;
-    display: inline-block;
     padding: 0.5em 1em;
 
     font-family: "Fjalla One";
@@ -110,11 +112,17 @@ body {
     background-color: #fff;
 
     border-radius: @radius;
+    border-bottom: 2px solid #bbb;
     opacity: 0.75;
     z-index: 20;
 
     &:hover {
       opacity: 0.95;
+    }
+
+    &:active {
+      top: -24px;
+      border-bottom: 1px solid #bbb;
     }
   }
 }

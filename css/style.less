@@ -5,6 +5,9 @@ body {
 
   font-family: "Headland One", "Habibi", arial;
   font-size: 1.5rem;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-smooth: always;
 }
 
 .container {
@@ -13,17 +16,25 @@ body {
 }
 
 #story {
-  margin-top: 20%;
+  position: relative;
+  margin-top: 100px;
+  min-height: 200px;
 
   font-weight: normal;
-  text-align: center;
+  text-align: right;
 
   color: white;
 
   cursor: e-resize;
+  z-index: 10;
+
+  blockquote {
+    margin: 0;
+  }
 
   &.me {
     font-weight: bold;
+    text-align: left;
 
     .who {
       visibility: hidden;
@@ -31,7 +42,10 @@ body {
   }
 
   &.narrator {
+    text-align: center;
     font-style: italic;
+
+    opacity: 0.6;
   }
 
   .who {
@@ -42,4 +56,26 @@ body {
 
     opacity: 0.5;
   }
+}
+
+#illustration {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  margin: 0;
+
+  text-align: center;
+  font-size: 8em;
+
+  opacity: 0.1;
+  z-index: 1;
+
+  .content {
+    position: relative;
+    left: -50%;
+  }
+}
+
+#action {
+  text-align: center;
 }

@@ -4,13 +4,17 @@ $(document).ready ->
 
   $('#story').on 'click', (e) ->
     if (step >= getScene().script.length) then return
-    $('#story').fadeOut('slow', -> $(this).html(renderLine(getScene().script[step++])).fadeIn())
+    $('#story').fadeOut 'fast', ->
+      $(this)
+        .html(renderLine(getScene().script[step]))
+        .attr('class', getScene().script[step++].who)
+        .fadeIn()
 
   # Utilities
 
-  renderLine = (script) ->
-    '<span class="who ' + script.who + '">' + script.who + '</span>' + script.line
-  # TODO: persist (to LocalStorage with crypting)
+  renderLine = (script) -> '<div class="who">' + script.who + '</div><blockquote>' + script.line + '</blockquote>'
+
+  # TODO: persist (to LocalStorage with crypting/hashing)
 
   # Load scene
 
@@ -18,18 +22,23 @@ $(document).ready ->
     {
       'id': 'some-slugified-name-to-remember'
       'background': 'orangered',
-      #TODO: font color
+      'foreground': 'white',
       'script': [
-        { who: 'me', line: "Lus?" },
-        { who: 'Losoposki', line: "Luus."},
+        { who: 'narrator', line: "You seem clueless." },
+        { who: 'me', line: "How did I end up here?" },
+        { who: 'Stranger', line: "You have always been here. You just have not noticed."},
+        { who: 'me', line: "But I..."},
       ]
     }
 
   # Reset
 
-  step = 1
+  step = 0
 
   # Initialize the scene
 
-  $('body').attr('style', 'background-color: ' + getScene().background)
-  $('#story').html(renderLine(getScene().script[0]))
+  $('body').css('background-color', getScene().background)
+  $('#story').css('color', getScene().foreground)
+  $('#story').html(renderLine(getScene().script[step]))
+  $('#story').attr('class', getScene().script[step].who)
+  step++

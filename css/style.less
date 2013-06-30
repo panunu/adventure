@@ -1,3 +1,14 @@
+/**
+ * VARIABLES
+ */
+
+@radius: 2px;
+
+
+/**
+ * DEFINITIONS
+ */
+
 body {
   margin: 0;
 
@@ -17,6 +28,7 @@ body {
 
 #story {
   position: relative;
+  margin: 0;
   margin-top: 100px;
   min-height: 200px;
 
@@ -25,12 +37,8 @@ body {
 
   color: white;
 
-  cursor: e-resize;
+  cursor: pointer;
   z-index: 10;
-
-  blockquote {
-    margin: 0;
-  }
 
   &.me {
     text-align: left;
@@ -47,6 +55,10 @@ body {
     opacity: 0.6;
   }
 
+  &.last {
+    cursor: default;
+  }
+
   .who {
     margin-bottom: 1.5em;
 
@@ -54,6 +66,10 @@ body {
     font-size: 0.75em;
 
     opacity: 0.5;
+  }
+
+  blockquote {
+    margin: 0;
   }
 }
 
@@ -77,4 +93,28 @@ body {
 
 #action {
   text-align: center;
+
+  a {
+    position: relative;
+    top: -25px;
+    display: inline-block;
+    padding: 0.5em;
+
+    font-family: "Fjalla One";
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #666;
+
+    background-color: #fff;
+
+    border-radius: @radius;
+    opacity: 0.75;
+    z-index: 20;
+
+    &:hover {
+      opacity: 0.95;
+    }
+  }
 }

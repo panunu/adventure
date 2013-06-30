@@ -17,6 +17,8 @@ $(document).ready ->
           .delay(1000)
           .fadeIn()
 
+        $('#story').addClass('last')
+
   # Utilities
 
   renderScript = (script) -> '<div class="who">' + script.who + '</div><blockquote>' + script.line + '</blockquote>'

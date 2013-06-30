@@ -11,6 +11,6 @@
   ],
 
   'actions': [
-    { target: 'some-slugified-name-to-remember', 'action': 'Continue' }
+    { target: 'some-slugified-name-to-remember', 'action': 'Call to action' }
   ]
 }

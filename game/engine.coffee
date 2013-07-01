@@ -17,7 +17,7 @@ $(document).ready ->
 
   initialize = ->
     step = 0
-    $('#log').prepend renderScript(getScene().script[step])
+    $('#log .content').prepend renderScript(getScene().script[step])
     $('article').hide().delay(2000).fadeIn()
     $('#action').fadeOut()
     $('body').css('background-color', getScene().background)
@@ -39,7 +39,7 @@ $(document).ready ->
         .attr('class', getScene().script[step].who)
         .fadeIn()
 
-      $('#log').prepend renderScript(getScene().script[step])
+      $('#log .content').prepend renderScript(getScene().script[step])
       step++
       #memory.add 'log' getScene().script[step - 1]
 

@@ -147,23 +147,35 @@ nav {
 }
 
 #log {
-  padding: 2em 0;
-  position: relative;
   display: none;
-
-  background: white;
-  border-radius: @radius;
+  position: absolute;
+  width: 40%;
+  top: 100px;
+  left: 50%;
 
   text-align: center;
-  font-size: 0.7em;
+  font-size: 0.5em;
 
-  opacity: 0.75;
-  z-index: 10;
+  opacity: 0.95;
+  z-index: 40;
+
+  cursor: default;
+
+  -webkit-transition: all 2s;
+
+  .content {
+    padding: 2em;
+    position: relative;
+    left: -50%;
+
+    background: white;
+    border-radius: @radius;
+  }
 
   .who {
-    font-size: 0.75em;
+    font-size: 0.8em;
 
-    opacity: 0.25;
+    opacity: 0.3;
   }
 
   blockquote {
@@ -171,11 +183,6 @@ nav {
     margin-top: 0.25em;
     margin-bottom: 1em;
 
-    opacity: 0.5;
-
-    &:hover {
-      opacity: 1;
-    }
+    opacity: 0.75;
   }
-
 }

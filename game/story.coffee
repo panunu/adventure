@@ -13,7 +13,7 @@
   ],
 
   'actions': [
-    { goto: 'act1_other_scene', 'label': 'Continue' }
+    { goto: 'act1_other_scene', 'label': 'Continue walking' }
   ]
 }
 
@@ -31,6 +31,6 @@
   ],
 
   'actions': [
-    { goto: 'act1_some_name', 'label': 'Continue' }
+    { goto: 'act1_some_name', 'label': 'Look up' }
   ]
 }

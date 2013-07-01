@@ -47,6 +47,7 @@ $(document).ready ->
 
         $('#action a').on 'click', (e) ->
           e.preventDefault()
+          memory.add 'log', getScene().script
           scene = eval(getScene().actions[0].goto)
           initialize()
 

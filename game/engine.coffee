@@ -29,7 +29,7 @@ $(document).ready ->
   # Inital setup (only once)
 
   $('#story').on 'click', (e) ->
-    if (step >= getScene().script.length) then return
+    return if (step >= getScene().script.length)
     $('#story').fadeOut 'fast', ->
       $(this)
         .html(renderScript(getScene().script[step]))
@@ -47,7 +47,7 @@ $(document).ready ->
 
         $('#action a').on 'click', (e) ->
           e.preventDefault()
-          memory.add 'log', getScene().script
+          memory.add 'log', line for line in getScene().script
           scene = eval(getScene().actions[0].goto)
           initialize()
 

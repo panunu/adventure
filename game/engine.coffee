@@ -17,6 +17,7 @@ $(document).ready ->
 
   initialize = ->
     step = 0
+    $('#log').prepend renderScript(getScene().script[step])
     $('article').hide().delay(2000).fadeIn()
     $('#action').fadeOut()
     $('body').css('background-color', getScene().background)
@@ -28,13 +29,19 @@ $(document).ready ->
 
   # Inital setup (only once)
 
+  $('#toggle-log').click (e) -> $('#log').toggle()
+
   $('#story').on 'click', (e) ->
     return if (step >= getScene().script.length)
     $('#story').fadeOut 'fast', ->
       $(this)
         .html(renderScript(getScene().script[step]))
-        .attr('class', getScene().script[step++].who)
+        .attr('class', getScene().script[step].who)
         .fadeIn()
+
+      $('#log').prepend renderScript(getScene().script[step])
+      step++
+      #memory.add 'log' getScene().script[step - 1]
 
       if step == getScene().script.length
         $('#action')
@@ -47,7 +54,6 @@ $(document).ready ->
 
         $('#action a').on 'click', (e) ->
           e.preventDefault()
-          memory.add 'log', line for line in getScene().script
           scene = eval(getScene().actions[0].goto)
           initialize()
 

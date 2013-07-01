@@ -28,6 +28,25 @@ body {
   margin-right: auto;
 }
 
+nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  font-size: 0.75em;
+
+  opacity: 0.05;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
 #story {
   position: relative;
   margin: 0;
@@ -125,4 +144,38 @@ body {
       border-bottom: 1px solid #bbb;
     }
   }
+}
+
+#log {
+  padding: 2em 0;
+  position: relative;
+  display: none;
+
+  background: white;
+  border-radius: @radius;
+
+  text-align: center;
+  font-size: 0.7em;
+
+  opacity: 0.75;
+  z-index: 10;
+
+  .who {
+    font-size: 0.75em;
+
+    opacity: 0.25;
+  }
+
+  blockquote {
+    margin: 0;
+    margin-top: 0.25em;
+    margin-bottom: 1em;
+
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
 }

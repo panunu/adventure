@@ -1,5 +1,4 @@
 class @Engine
-  constructor: () ->
 
   renderScript: (script) -> '<div class="who">' + script.who + '</div><blockquote>' + script.line + '</blockquote>'
 
@@ -11,7 +10,7 @@ class @Engine
     $('body').css('background-color', scene.background)
     $('article').css('color', scene.foreground)
     $('#story').html @renderScript(scene.script[step])
-    $('#story').attr('class', scene.script[step].who)
+    $('#story').attr('data-who', scene.script[step].who)
     $('#illustration .content').html('<i class="icon-' + scene.icon + '"></i>')
 
   step: (scene, step) ->
@@ -20,7 +19,7 @@ class @Engine
     $('#story').fadeOut 'fast', =>
       $('#story')
         .html(@renderScript(scene.script[step]))
-        .attr('class', scene.script[step].who)
+        .attr('data-who', scene.script[step].who)
         .fadeIn()
 
   action: (scene) ->

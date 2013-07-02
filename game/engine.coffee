@@ -11,8 +11,6 @@ $(document).ready ->
   renderAction = (action) -> '<a href="#">' + action.label + '</a>'
   getScene = () -> scene
 
-  # TODO: persist (to LocalStorage with crypting/hashing)
-
   # Initialize the scene
 
   initialize = ->
@@ -25,6 +23,7 @@ $(document).ready ->
     $('#story').html(renderScript(getScene().script[step]))
     $('#story').attr('class', getScene().script[step].who)
     $('#illustration .content').html('<i class="icon-' + getScene().icon + '"></i>')
+    #storage.save scene, memory
     step++
 
   # Inital setup (only once)
@@ -40,8 +39,8 @@ $(document).ready ->
         .fadeIn()
 
       $('#log .content').prepend renderScript(getScene().script[step])
+      #memory.set 'log', $('#log .content')
       step++
-      #memory.add 'log' getScene().script[step - 1]
 
       if step == getScene().script.length
         $('#action')
@@ -58,5 +57,13 @@ $(document).ready ->
           initialize()
 
   # Lights, camera, action!
+
+  ###if storage.hasSavedGame()
+    savegame = storage.load()
+    scene = savegame.scene
+
+    if savegame.memory instanceof Memory
+      memory = savegame.memory
+      $('#log .content').prepend(savegame.memory.get 'log')###
 
   initialize()

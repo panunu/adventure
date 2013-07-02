@@ -1,15 +1,17 @@
-class Storage
+class @Storage
 
   load: ->
-    return {
-      'stage': $.jStorage.get 'stage',
+    {
+      'scene': $.jStorage.get 'scene',
       'memory': $.jStorage.get 'memory'
     }
 
-  save: (stage, memory) ->
+  save: (scene, memory) ->
     $.jStorage.set 'saved', true
-    $.jStorage.set 'stage', stage
+    $.jStorage.set 'scene', scene
     $.jStorage.set 'memory', memory
 
   hasSavedGame: ->
     if $.jStorage.get 'saved' then true else false
+
+@storage = new Storage

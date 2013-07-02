@@ -1,5 +1,8 @@
-class Memory
-  bag: []
+class @Memory
+
+  bag: [
+    'init': true
+  ]
 
   set: (key, value) -> @bag[key] = value
 

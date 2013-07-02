@@ -11,7 +11,4 @@ class @Storage
     $.jStorage.set 'scene', scene
     $.jStorage.set 'memory', memory
 
-  hasSavedGame: ->
-    if $.jStorage.get 'saved' then true else false
-
-@storage = new Storage
+  hasSavedGame: -> if $.jStorage.get 'saved' then true else false

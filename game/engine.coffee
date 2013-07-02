@@ -5,6 +5,7 @@ class @Engine
   renderAction: (action) -> '<a href="#">' + action.label + '</a>'
 
   render: (scene, step) ->
+    $('#story').removeClass('last')
     $('article').hide().delay(2000).fadeIn()
     $('#action').fadeOut()
     $('body').css('background-color', scene.background)
@@ -23,7 +24,7 @@ class @Engine
         .fadeIn()
 
   action: (scene) ->
-    $('#story').addClass('last') # TODO: Fix me.
+    $('#story').addClass('last')
     $('#action')
       .hide()
       .html(@renderAction(scene.actions[0]))

@@ -5,11 +5,11 @@
   icon: 'road',
 
   script: [
-    { who: 'narrator', line: "You feel confused." },
+    { who: 'thought', line: "I feel confused." },
     { who: 'me', line: "How did I end up here?" },
     { who: 'Stranger', line: "You have always been here. You just have not noticed."},
     { who: 'me', line: "But I..."},
-    { who: 'narrator', line: "The stranger smiles."},
+    { who: 'thought', line: "I can not find the right words."},
   ],
 
   actions: [
@@ -23,11 +23,11 @@
   icon: 'fire',
 
   script: [
-    { who: 'narrator', line: "The fire warms you." },
+    { who: 'thought', line: "The fire feels warm." },
     { who: 'me', line: "What just happened?" },
     { who: 'me', line: "..." },
     { who: 'me', line: "Hello?" },
-    { who: 'narrator', line: "All you hear is silence. You feel at unease." },
+    { who: 'thought', line: "I could not hear a thing." },
   ],
 
   actions: [

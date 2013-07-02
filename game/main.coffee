@@ -4,10 +4,8 @@ $(document).ready ->
 
   storage = new Storage
   memory  = new Memory
-  ui      = new UserInterface
+  log     = new Log
   engine  = new Engine
-
-  ui.bind()
 
   # Initialize the scene
 
@@ -16,7 +14,7 @@ $(document).ready ->
 
   initialize = ->
     step = 0
-    $('#log .content').prepend(engine.renderScript(scene.script[step]))
+    log.add engine.renderScript(scene.script[step])
     $('article').hide().delay(2000).fadeIn()
     $('#action').fadeOut()
     $('body').css('background-color', scene.background)
@@ -36,7 +34,7 @@ $(document).ready ->
         .attr('class', scene.script[step].who)
         .fadeIn()
 
-      $('#log .content').prepend engine.renderScript(scene.script[step])
+      log.add(engine.renderScript(scene.script[step]))
       # memory.set 'log', $('#log .content')
       step++
 

@@ -1,40 +1,45 @@
 class @Engine
+  constructor: () ->
+
   renderScript: (script) -> '<div class="who">' + script.who + '</div><blockquote>' + script.line + '</blockquote>'
+
   renderAction: (action) -> '<a href="#">' + action.label + '</a>'
 
-  toggleLog: -> $('#toggle-log').click (e) -> $('#log').toggle()
-
-  ###runScene: () ->
-    step = 0
-    $('#log .content').prepend renderScript(getScene().script[step])
+  render: (scene, step) ->
     $('article').hide().delay(2000).fadeIn()
     $('#action').fadeOut()
-    $('body').css('background-color', getScene().background)
-    $('article').css('color', getScene().foreground)
-    $('#story').html(renderScript(getScene().script[step]))
-    $('#story').attr('class', getScene().script[step].who)
-    $('#illustration .content').html('<i class="icon-' + getScene().icon + '"></i>')
-    #storage.save scene, memory
-    step++###
+    $('body').css('background-color', scene.background)
+    $('article').css('color', scene.foreground)
+    $('#story').html @renderScript(scene.script[step])
+    $('#story').attr('class', scene.script[step].who)
+    $('#illustration .content').html('<i class="icon-' + scene.icon + '"></i>')
 
-  # Inital setup (only once)
-###
-  $('#story').on 'click', (e) ->
-    return if (step >= getScene().script.length)
-    $('#story').fadeOut 'fast', ->
-      $(this)
-        .html(renderScript(getScene().script[step]))
-        .attr('class', getScene().script[step].who)
+  step: (scene, step) ->
+    return false if (step >= scene.script.length)
+
+    $('#story').fadeOut 'fast', =>
+      $('#story')
+        .html(@renderScript(scene.script[step]))
+        .attr('class', scene.script[step].who)
         .fadeIn()
 
-      $('#log .content').prepend renderScript(getScene().script[step])
-      # memory.set 'log', $('#log .content')
-      step++
+  action: (scene) ->
+    $('#story').addClass('last')
+    $('#action')
+      .hide()
+      .html(@renderAction(scene.actions[0]))
+      .delay(1500)
+      .fadeIn()
 
-      if step == getScene().script.length
+
+
+      # log.add(engine.renderScript(scene.script[step]))
+      # memory.set 'log', $('#log .content')
+    ###
+      if (step + 1) == scene.script.length
         $('#action')
           .hide()
-          .html(renderAction(getScene().actions[0]))
+          .html(@renderAction(scene.actions[0]))
           .delay(1500)
           .fadeIn()
 
@@ -42,6 +47,6 @@ class @Engine
 
         $('#action a').on 'click', (e) ->
           e.preventDefault()
-          scene = eval(getScene().actions[0].goto)
-          initialize()
+          return eval(scene.actions[0].goto)
+
 ###

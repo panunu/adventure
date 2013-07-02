@@ -12,47 +12,31 @@ $(document).ready ->
   scene = act1_some_name
   step  = 0
 
-  initialize = ->
-    step = 0
-    log.add engine.renderScript(scene.script[step])
-    $('article').hide().delay(2000).fadeIn()
-    $('#action').fadeOut()
-    $('body').css('background-color', scene.background)
-    $('article').css('color', scene.foreground)
-    $('#story').html engine.renderScript(scene.script[step])
-    $('#story').attr('class', scene.script[step].who)
-    $('#illustration .content').html('<i class="icon-' + scene.icon + '"></i>')
-    #storage.save scene, memory
-    step++
-
+  # Bindings
 
   $('#story').on 'click', (e) ->
-    return if (step >= scene.script.length)
-    $('#story').fadeOut 'fast', ->
-      $(this)
-        .html(engine.renderScript(scene.script[step]))
-        .attr('class', scene.script[step].who)
-        .fadeIn()
-
-      log.add(engine.renderScript(scene.script[step]))
-      # memory.set 'log', $('#log .content')
+    if engine.step(scene, step)
+      log.add engine.renderScript(scene.script[step])
       step++
 
       if step == scene.script.length
-        $('#action')
-          .hide()
-          .html(engine.renderAction(scene.actions[0]))
-          .delay(1500)
-          .fadeIn()
-
-        $('#story').addClass('last')
+        engine.action(scene)
 
         $('#action a').on 'click', (e) ->
           e.preventDefault()
           scene = eval(scene.actions[0].goto)
-          initialize()
+          next()
 
-  # Lights, camera, action!
+  $('#toggle-log').click (e) -> $('#log').toggle()
+
+  # Functions
+
+  next = ->
+    step = 0
+    engine.render(scene, step)
+    log.add engine.renderScript(scene.script[step])
+    #storage.save scene, memory, log
+    step++
 
   ###if storage.hasSavedGame()
     savegame = storage.load()
@@ -62,4 +46,6 @@ $(document).ready ->
       memory = savegame.memory
       $('#log .content').prepend(savegame.memory.get 'log')###
 
-  initialize()
+  next()
+
+  # Lights, camera, action!

@@ -2,7 +2,7 @@
 @act1_some_name = {
   background: '#3F4037',
   foreground: '#E3E5C7',
-  icon: 'road'
+  icon: 'road',
 
   script: [
     { who: 'narrator', line: "You feel confused." },
@@ -20,7 +20,7 @@
 @act1_other_scene = {
   background: '#111',
   foreground: 'orangered',
-  icon: 'fire'
+  icon: 'fire',
 
   script: [
     { who: 'narrator', line: "The fire warms you." },

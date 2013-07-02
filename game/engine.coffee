@@ -24,29 +24,9 @@ class @Engine
         .fadeIn()
 
   action: (scene) ->
-    $('#story').addClass('last')
+    $('#story').addClass('last') # TODO: Fix me.
     $('#action')
       .hide()
       .html(@renderAction(scene.actions[0]))
       .delay(1500)
       .fadeIn()
-
-
-
-      # log.add(engine.renderScript(scene.script[step]))
-      # memory.set 'log', $('#log .content')
-    ###
-      if (step + 1) == scene.script.length
-        $('#action')
-          .hide()
-          .html(@renderAction(scene.actions[0]))
-          .delay(1500)
-          .fadeIn()
-
-        $('#story').addClass('last')
-
-        $('#action a').on 'click', (e) ->
-          e.preventDefault()
-          return eval(scene.actions[0].goto)
-
-###

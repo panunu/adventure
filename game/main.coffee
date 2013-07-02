@@ -35,16 +35,8 @@ $(document).ready ->
     step = 0
     engine.render(scene, step)
     log.add engine.renderScript(scene.script[step])
-    #storage.save scene, memory, log
+    #TODO: Save (storage.save scene, memory, log).
     step++
-
-  ###if storage.hasSavedGame()
-    savegame = storage.load()
-    scene = savegame.scene
-
-    if savegame.memory instanceof Memory
-      memory = savegame.memory
-      $('#log .content').prepend(savegame.memory.get 'log')###
 
   next()
 

@@ -1,5 +1,5 @@
 # You can make editorial notes like this.
-@act1_some_name = {
+@act1_intro = {
   background: '#3F4037',
   foreground: '#E3E5C7',
   icon: 'road',
@@ -13,11 +13,12 @@
   ],
 
   actions: [
-    { goto: 'act1_other_scene', label: 'Continue walking' }
+    { goto: 'act1_fire', label: 'Continue walking' }
+    { goto: 'act1_to_act2', label: 'Jump' }
   ]
 }
 
-@act1_other_scene = {
+@act1_fire = {
   background: '#111',
   foreground: 'orangered',
   icon: 'fire',
@@ -32,5 +33,20 @@
 
   actions: [
     { goto: 'act1_some_name', label: 'Look up' }
+  ]
+}
+
+@act1_to_act2 = {
+  background: '#fff',
+  foreground: 'black',
+  icon: '',
+
+  script: [
+    { who: 'thought', line: "Act 1" },
+    { who: 'thought', line: "Act 1" }
+  ],
+
+  actions: [
+    { goto: 'act1_intro', label: 'Continue' }
   ]
 }

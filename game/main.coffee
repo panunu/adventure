@@ -9,7 +9,7 @@ $(document).ready ->
 
   # Initialize the scene
 
-  scene = act1_some_name
+  scene = act1_intro
   step  = 0
 
   # Bindings
@@ -24,7 +24,7 @@ $(document).ready ->
 
         $('#action a').on 'click', (e) ->
           e.preventDefault()
-          scene = eval(scene.actions[0].goto)
+          scene = eval($(this).attr('data-goto'))
           next()
 
   $('#toggle-log').click (e) -> $('#log').toggle()

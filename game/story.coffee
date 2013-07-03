@@ -42,8 +42,7 @@
   icon: '',
 
   script: [
-    { who: 'thought', line: "Act 1" },
-    { who: 'thought', line: "Act 1" }
+    { who: '', line: "Act 1" }
   ],
 
   actions: [

@@ -27,7 +27,7 @@
     { who: 'me', line: "What just happened?" },
     { who: 'me', line: "..." },
     { who: 'me', line: "Hello?" },
-    { who: 'thought', line: "I could not hear a thing." },
+    { who: 'thought', line: "I must be alone." },
   ],
 
   actions: [

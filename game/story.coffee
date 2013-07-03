@@ -32,7 +32,7 @@
   ],
 
   actions: [
-    { goto: 'act1_some_name', label: 'Look up' }
+    { goto: 'act1_intro', label: 'Look up' }
   ]
 }
 

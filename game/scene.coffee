@@ -17,6 +17,8 @@ class @Scene
   foreground: (color) -> $('#story, article').css('color', color)
   icon: (icon) -> $('#illustration .content').html('<i class="icon-' + icon + '"></i>')
 
+  display: (line, next) -> @story '', line, next
+
   say: (line, next) -> @story 'me', line, next
 
   says: (actor, line, next) -> @story actor, line, next

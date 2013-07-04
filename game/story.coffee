@@ -55,6 +55,6 @@
   @foreground 'white'
   @icon 'fire'
 
-  @say 'Hmm', ->
+  @think 'Lus', ->
     say 'Would you answer a long question if I asked you? Just trying to write a long line to see how this works.', ->
       says 'stranger', 'Yes.', ->###

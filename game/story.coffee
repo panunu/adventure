@@ -62,5 +62,5 @@
     @say 'Would you answer a long question if I asked you? Just trying to write a long line to see how this works.', =>
       @says 'stranger', 'Yes.', =>
         @last (@think 'Oh noes', =>), =>
-          console.log 'wryy'
           @button 'Continue', 'act1_dsl_example'
+          @button 'Run', 'act1_dsl_example'

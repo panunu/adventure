@@ -5,7 +5,7 @@ class @Scene
 
   start: ->
     $('article').hide().delay(2000).fadeIn()
-    $('#action').fadeOut()
+    $('#action').fadeOut(-> $(this).html(''))
     $('#story').removeClass('last')
     @play()
 
@@ -24,17 +24,20 @@ class @Scene
   think: (line, next) -> @story 'thought', line, next
 
   last: (line, actions) ->
-    $('#story').addClass('last')
     line()
     actions()
 
-  button: (label, goto) ->
+    $('#story').addClass('last')
     $('#action')
       .hide()
-      .html('<a href="#" data-goto="' + goto + '">' + label + '</a>')
       .delay(1500)
       .fadeIn()
+
     false
+
+  button: (label, goto) ->
+    $('#action')
+      .append('<a href="#" data-goto="' + goto + '">' + label + '</a>')
 
   # Internals
 

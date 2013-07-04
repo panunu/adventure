@@ -49,3 +49,12 @@
     { goto: 'act1_intro', label: 'Continue' }
   ]
 }
+
+@act1_dsl_example = ->
+  @background '#000'
+  @foreground 'white'
+  @icon 'fire'
+
+  @say 'Hmm', ->
+    say 'Would you answer a long question if I asked you? Just trying to write a long line to see how this works.', ->
+      says 'stranger', 'Yes.', ->###

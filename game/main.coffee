@@ -9,7 +9,7 @@ $(document).ready ->
 
   # Initialize the scene
 
-  scene = act1_intro
+  scene = act1_dsl_example
   step  = 0
 
   # Bindings

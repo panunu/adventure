@@ -51,11 +51,14 @@
 }
 
 @act1_dsl_example = ->
-  @background '#000'
+  @background 'black'
   @foreground 'white'
   @icon 'fire'
 
-  @says 'Stranger', 'Lus', ->
+  @says 'Stranger', 'Lus', =>
     @background 'white'
-    @say 'Would you answer a long question if I asked you? Just trying to write a long line to see how this works.', ->
-      @says 'stranger', 'Yes.', ->
+    @foreground 'black'
+    @icon 'fire'
+    @say 'Would you answer a long question if I asked you? Just trying to write a long line to see how this works.', =>
+      @says 'stranger', 'Yes.', =>
+        console.log 'wryy'

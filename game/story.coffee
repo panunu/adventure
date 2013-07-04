@@ -61,4 +61,6 @@
     @icon 'fire'
     @say 'Would you answer a long question if I asked you? Just trying to write a long line to see how this works.', =>
       @says 'stranger', 'Yes.', =>
-        console.log 'wryy'
+        @last (@think 'Oh noes', =>), =>
+          console.log 'wryy'
+          @button 'Continue', 'act1_dsl_example'

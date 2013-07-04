@@ -5,7 +5,7 @@ class @Scene
 
   start: ->
     $('article').hide().delay(2000).fadeIn()
-    $('#action').fadeOut(-> $(this).html(''))
+    $('#action').hide().html('')
     $('#story').removeClass('last')
     @play()
 
@@ -18,14 +18,11 @@ class @Scene
   icon: (icon) -> $('#illustration .content').html('<i class="icon-' + icon + '"></i>')
 
   display: (line, next) -> @story '', line, next
-
   say: (line, next) -> @story 'me', line, next
-
   says: (actor, line, next) -> @story actor, line, next
-
   think: (line, next) -> @story 'thought', line, next
 
-  last: (line, actions) ->
+  final: (line, actions) ->
     line()
     actions()
 

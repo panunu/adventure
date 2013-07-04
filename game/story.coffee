@@ -5,7 +5,7 @@
   @foreground 'white'
   @icon ''
 
-  @last (@display 'Act 1', =>), =>
+  @final (@display 'Act 1', =>), =>
     @button 'Start', 'act1_intro'
 
 @act1_intro = ->
@@ -17,5 +17,5 @@
     @say 'How did I end up here?', =>
       @says 'Stranger', 'You have always been here. You just have not noticed.', =>
         @say 'But I...', =>
-          @last (@think 'I can not find the right words.', =>), =>
+          @final (@think 'I can not find the right words.', =>), =>
             @button 'Continue', 'act1'

@@ -11,11 +11,11 @@ class @Scene
   foreground: (color) -> $('#story, article').css('color', color)
   icon: (icon) -> $('#illustration .content').html('<i class="icon-' + icon + '"></i>')
 
-  say: (line, next) -> @story 'me', line
-  think: (line, next) -> @story 'thought', line
-  says: (actor, line, next) -> @story 'actor', line
+  say: (line, next) -> @story 'me', line, next
+  says: (actor, line, next) -> @story actor, line, next
+  think: (line, next) -> @story 'thought', line, next
 
-  story: (actor, line) ->
+  story: (actor, line, @next) ->
     $('#story')
       .html(@render line, actor)
       .attr('data-who', actor)

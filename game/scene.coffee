@@ -1,5 +1,5 @@
 class @Scene
-  constructor: (@script) ->
+  constructor: (@script, @storage, @memory, @log) ->
 
   # Mechanics
 

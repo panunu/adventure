@@ -29,7 +29,6 @@ class @Scene
       .hide()
       .delay(1500)
       .fadeIn()
-
     false
 
   button: (label, goto) ->

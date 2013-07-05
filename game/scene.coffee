@@ -35,8 +35,6 @@ class @Scene
     $('#action')
       .append('<a href="#" data-goto="' + goto + '">' + label + '</a>')
 
-  goto: (target) -> target
-
   # Internals
 
   story: (actor, line, next) ->

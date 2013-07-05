@@ -35,6 +35,8 @@ $(document).ready ->
     else if scene != false
       scene = scene()
 
+      if scene == 'trol' then console.log 'asd'
+
     #TODO: Save (storage.save scene, memory, log).
     #TODO: Log.
 

@@ -7,6 +7,7 @@
 
   @final (@display 'Act 1', =>), =>
     @button 'Start', 'act1_intro'
+    #@goto 'lus'
 
 @act1_intro = ->
   @background '#3F4037'

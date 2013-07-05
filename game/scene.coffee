@@ -22,10 +22,8 @@ class @Scene
   says: (actor, line, next) -> @story actor, line, next
   think: (line, next) -> @story 'thought', line, next
 
-  final: (line, actions) ->
+  final: (line) ->
     line()
-    actions()
-
     $('#story').addClass('last')
     $('#action')
       .hide()
@@ -38,8 +36,7 @@ class @Scene
     $('#action')
       .append('<a href="#" data-goto="' + goto + '">' + label + '</a>')
 
-  goto: (goto) ->
-    'trol'
+  goto: (target) -> target
 
   # Internals
 

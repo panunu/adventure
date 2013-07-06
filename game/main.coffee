@@ -31,7 +31,7 @@ $(document).ready ->
   play = =>
     if step is 0
       database.save('' + scene, bag, journal)
-      scene = (new Scene(scene, storage, bag, journal)).start()
+      scene = (new Scene(scene, database, bag, journal)).start()
       step++
     else if scene != false
       scene = scene()

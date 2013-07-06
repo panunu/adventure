@@ -30,7 +30,7 @@ $(document).ready ->
 
   play = =>
     if step is 0
-      database.save('' + scene, bag, journal)
+      database.save(scene, bag, journal)
       scene = (new Scene(scene, database, bag, journal)).start()
       step++
     else if scene != false
@@ -41,7 +41,7 @@ $(document).ready ->
   if database.hasSavedGame()
     savegame = database.load()
     eval('scene = ' + savegame.scene)
-    #bag = savegame.bag
-    #journal = savegame.journal
+    #eval('bag = ' + savegame.bag)
+    #eval('journal = ' + savegame.journal)
 
   play()

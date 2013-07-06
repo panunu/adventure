@@ -6,6 +6,7 @@
   @icon ''
 
   @final @display 'Act 1', =>
+    @write 'My journey begins.'
     @button 'Start', 'act1_intro'
 
 @act1_intro = ->

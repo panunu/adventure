@@ -9,9 +9,12 @@ class @Database
 
   save: (scene, bag, journal) ->
     $.jStorage.set 'saved', true
-    $.jStorage.set 'scene', scene
-    $.jStorage.set 'bag', bag
-    $.jStorage.set 'journal', journal
-    $.jStorage.set 'journal', journal
+    $.jStorage.set 'scene', @serialize(scene)
+
+    # TODO: Serialize.
+    #$.jStorage.set 'bag', @serialize(bag)
+    #$.jStorage.set 'journal', @serialize(journal)
 
   hasSavedGame: -> if $.jStorage.get 'saved' then true else false
+
+  serialize: (item) -> '' + item

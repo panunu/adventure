@@ -4,7 +4,7 @@ class @Storage
     {
       scene: $.jStorage.get 'scene',
       memory: $.jStorage.get 'memory'
-      log: $.jStorage.get 'journal'
+      journal: $.jStorage.get 'journal'
     }
 
   save: (scene, memory, journal) ->

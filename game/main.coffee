@@ -30,7 +30,7 @@ $(document).ready ->
 
   play = =>
     if step is 0
-      #storage.save(scene, memory, log)
+      storage.save(scene, memory, journal)
       scene = (new Scene(scene, storage, memory, journal)).start()
       step++
     else if scene != false

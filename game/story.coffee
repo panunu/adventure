@@ -18,5 +18,5 @@
       @says 'Stranger', 'You have always been here. You just have not noticed.', =>
         @say 'But I...', =>
           @final @think 'I can not find the right words.', =>
-            @journal.write 'Strange.'
+            @write 'Strange.'
             @button 'Continue', 'act1'

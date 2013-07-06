@@ -36,6 +36,8 @@ class @Scene
     $('#action')
       .append('<a href="#" data-goto="' + goto + '">' + label + '</a>')
 
+  write: (entry) -> @journal.write entry
+
   # Internals
 
   story: (actor, line, next) ->

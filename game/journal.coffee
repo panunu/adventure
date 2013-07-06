@@ -1,2 +1,2 @@
 class @Journal
-  write: (content) -> $('#log .content').prepend content
+  write: (content) -> $('#journal .content').prepend '<p>' + content + '</p>'

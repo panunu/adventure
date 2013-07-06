@@ -4,7 +4,7 @@ $(document).ready ->
 
   storage = new Storage
   memory  = new Memory
-  log     = new Log
+  journal = new Journal
 
   # Initialize the scene
 
@@ -16,9 +16,9 @@ $(document).ready ->
   $('#story').on 'click', (e) ->
     play()
 
-  $('#toggle-log').click (e) ->
+  $('#toggle-journal').click (e) ->
     e.preventDefault()
-    $('#log').toggle()
+    $('#journal').toggle()
 
   $('#action').on 'click', 'a', (e) ->
     e.preventDefault()
@@ -29,15 +29,19 @@ $(document).ready ->
   # Functions
 
   play = =>
-    if step == 0
-      scene = (new Scene(scene, storage, memory, log)).start()
+    if step is 0
+      #storage.save(scene, memory, log)
+      scene = (new Scene(scene, storage, memory, journal)).start()
       step++
     else if scene != false
       scene = scene()
 
-    #TODO: Save (storage.save scene, memory, log).
-    #TODO: Log.
-
   # Lights, camera, action!
+
+  if false #storage.hasSavedGame()
+    savegame = storage.load()
+    scene = savegame.scene
+    memory = savegame.memory
+    journal = savegame.journal
 
   play()

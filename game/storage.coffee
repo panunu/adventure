@@ -2,15 +2,15 @@ class @Storage
 
   load: ->
     {
-      'scene': $.jStorage.get 'scene',
-      'memory': $.jStorage.get 'memory'
-      'log': $.jStorage.get 'log'
+      scene: $.jStorage.get 'scene',
+      memory: $.jStorage.get 'memory'
+      log: $.jStorage.get 'journal'
     }
 
-  save: (scene, memory, log) ->
+  save: (scene, memory, journal) ->
     $.jStorage.set 'saved', true
     $.jStorage.set 'scene', scene
     $.jStorage.set 'memory', memory
-    $.jStorage.set 'log', log
+    $.jStorage.set 'journal', journal
 
   hasSavedGame: -> if $.jStorage.get 'saved' then true else false

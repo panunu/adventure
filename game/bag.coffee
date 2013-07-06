@@ -1,4 +1,4 @@
-class @Memory
+class @Bag
   bag: []
 
   set: (key, value) -> @bag[key] = value

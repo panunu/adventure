@@ -2,9 +2,9 @@ $(document).ready ->
 
   # Inital setup (only once)
 
-  storage = new Storage
-  memory  = new Memory
-  journal = new Journal
+  database = new Database
+  journal  = new Journal
+  bag      = new Bag
 
   # Initialize the scene
 
@@ -30,17 +30,18 @@ $(document).ready ->
 
   play = =>
     if step is 0
-      scene = (new Scene(scene, storage, memory, journal)).start()
+      database.save('' + scene, bag, journal)
+      scene = (new Scene(scene, storage, bag, journal)).start()
       step++
     else if scene != false
       scene = scene()
 
   # Lights, camera, action!
 
-  ###if storage.hasSavedGame()
-    savegame = storage.load()
-    scene = savegame.scene
-    memory = savegame.memory
-    journal = savegame.journal###
+  if database.hasSavedGame()
+    savegame = database.load()
+    eval('scene = ' + savegame.scene)
+    #bag = savegame.bag
+    #journal = savegame.journal
 
   play()

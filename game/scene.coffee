@@ -1,5 +1,5 @@
 class @Scene
-  constructor: (@script, @storage, @memory, @journal) ->
+  constructor: (@script, @database, @bag, @journal) ->
 
   # Mechanics
 
@@ -7,7 +7,6 @@ class @Scene
     $('article').hide().delay(2000).fadeIn()
     $('#action').hide().html('')
     $('#story').removeClass('last')
-    #@storage.save @script, @memory, @log
     @play()
 
   play: () -> @script = @script()

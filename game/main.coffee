@@ -9,7 +9,7 @@ $(document).ready ->
   # Initialize the scene
 
   scene = act1
-  step = 0
+  step  = 0
 
   # Bindings
 
@@ -30,7 +30,6 @@ $(document).ready ->
 
   play = =>
     if step is 0
-      storage.save(scene, memory, journal)
       scene = (new Scene(scene, storage, memory, journal)).start()
       step++
     else if scene != false
@@ -38,10 +37,10 @@ $(document).ready ->
 
   # Lights, camera, action!
 
-  if false #storage.hasSavedGame()
+  ###if storage.hasSavedGame()
     savegame = storage.load()
     scene = savegame.scene
     memory = savegame.memory
-    journal = savegame.journal
+    journal = savegame.journal###
 
   play()

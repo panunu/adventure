@@ -1,5 +1,7 @@
 class @Bag
-  bag: []
+  bag: {}
+
+  constructor: (@bag) ->
 
   set: (key, value) -> @bag[key] = value
 

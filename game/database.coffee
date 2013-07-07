@@ -2,19 +2,18 @@ class @Database
 
   load: ->
     {
-      scene: $.jStorage.get 'scene',
-      bag: $.jStorage.get 'bag'
+      scene:   eval('scene = ' + $.jStorage.get 'scene')
+      bag:     new Bag(@unserialize($.jStorage.get 'bag'))
       journal: $.jStorage.get 'journal'
     }
 
   save: (scene, bag, journal) ->
     $.jStorage.set 'saved', true
-    $.jStorage.set 'scene', @serialize(scene)
-
-    # TODO: Serialize.
-    #$.jStorage.set 'bag', @serialize(bag)
-    #$.jStorage.set 'journal', @serialize(journal)
+    $.jStorage.set 'scene', '' + scene
+    $.jStorage.set 'bag',   @serialize(bag)
+    # TODO: Journal.
 
   hasSavedGame: -> if $.jStorage.get 'saved' then true else false
 
-  serialize: (item) -> '' + item
+  serialize: (item) -> JSON.stringify(item, null, 2)
+  unserialize: (item) -> JSON.parse(item)

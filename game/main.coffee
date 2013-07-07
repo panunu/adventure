@@ -40,8 +40,7 @@ $(document).ready ->
 
   if database.hasSavedGame()
     savegame = database.load()
-    eval('scene = ' + savegame.scene)
-    #eval('bag = ' + savegame.bag)
-    #eval('journal = ' + savegame.journal)
+    scene    = savegame.scene
+    bag      = savegame.bag
 
   play()

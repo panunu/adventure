@@ -7,6 +7,7 @@
 
   @final @display 'Act 1', =>
     @write 'My journey begins.'
+    @bag.set 'lus', 'grande'
     @button 'Start', 'act1_intro'
 
 @act1_intro = ->

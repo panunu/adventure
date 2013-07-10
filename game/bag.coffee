@@ -12,3 +12,5 @@ class @Bag
   get: (key) -> @bag[key]
 
   has: (key) -> if @bag[key] then true else false
+
+  getSerializable: () -> @bag

@@ -3,8 +3,8 @@ $(document).ready ->
   # Inital setup (only once)
 
   database = new Database
-  journal  = new Journal
-  bag      = new Bag
+  journal  = new Journal []
+  bag      = new Bag {}
 
   # Initialize the scene
 
@@ -39,8 +39,10 @@ $(document).ready ->
   # Lights, camera, action!
 
   if database.hasSavedGame()
+    # Flash loading message
     savegame = database.load()
     scene    = savegame.scene
     bag      = savegame.bag
+    journal  = savegame.journal
 
   play()

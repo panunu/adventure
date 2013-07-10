@@ -3,7 +3,7 @@ class @Journal
 
   constructor: (@entries) ->
     for entry in @entries
-      @write entry
+      $('#journal .content').prepend '<p>' + entry + '</p>'
 
   write: (content) ->
     @entries.unshift content

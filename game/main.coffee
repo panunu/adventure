@@ -39,10 +39,12 @@ $(document).ready ->
   # Lights, camera, action!
 
   if database.hasSavedGame()
-    # Flash loading message
+    $('#loader').fadeIn()
+
     savegame = database.load()
     scene    = savegame.scene
     bag      = savegame.bag
     journal  = savegame.journal
+    $('#loader').delay(2000).fadeOut(3000)
 
   play()

@@ -12,7 +12,7 @@
 body {
   margin: 0;
 
-  background-color: white;
+  background-color: black;
   background-image: url('../img/noise.png');
 
   font-family: "Headland One", Helvetica, Arial;
@@ -31,20 +31,39 @@ body {
 
 nav {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 25px;
+  right: 10px;
 
   font-size: 0.75em;
 
-  opacity: 0.05;
+  div {
+    float: left;
+    width: auto;
+    height: 20px;
+    margin-right: 25px;
+  }
 
-  &:hover {
-    opacity: 0.5;
+  i {
+    color: white;
+
+    opacity: 0.25;
+    -webkit-transition: opacity 1s;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 
   a {
-    color: white;
     text-decoration: none;
+  }
+
+  #loader {
+    display: none;
+
+    -webkit-animation: spin 1s linear infinite;
+    -moz-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
   }
 }
 
@@ -115,7 +134,7 @@ nav {
   text-align: center;
   font-size: 8em;
 
-  opacity: 0.2;
+  opacity: 0.05;
   z-index: 1;
 
   .content {
@@ -189,19 +208,9 @@ nav {
     border-radius: @radius;
 
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-
-    .who {
-      font-size: 0.8em;
-
-      opacity: 0.5;
-    }
-
-    blockquote {
-      margin: 0;
-      margin-top: 0.25em;
-      margin-bottom: 2em;
-
-      opacity: 0.75;
-    }
   }
 }
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }

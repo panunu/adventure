@@ -38,13 +38,15 @@ $(document).ready ->
 
   # Lights, camera, action!
 
-  if database.hasSavedGame()
-    $('#loader').fadeIn()
-
+  if not database.hasSavedGame()
+    $('loader').hide()
+  else
     savegame = database.load()
     scene    = savegame.scene
     bag      = savegame.bag
     journal  = savegame.journal
-    $('#loader').delay(2000).fadeOut(3000)
+    $('#loader').delay(2000).fadeOut(1000)
+
+  $('body').addClass 'initialized'
 
   play()

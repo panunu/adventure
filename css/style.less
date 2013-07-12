@@ -21,7 +21,9 @@ body {
   font-smoothing: antialiased;
   font-smooth: always;
 
-  -webkit-transition: background-color 2s;
+  &.initialized {
+    -webkit-transition: background-color 2s;
+  }
 }
 
 .container {
@@ -59,8 +61,6 @@ nav {
   }
 
   #loader {
-    display: none;
-
     -webkit-animation: spin 1s linear infinite;
     -moz-animation: spin 1s linear infinite;
     animation: spin 1s linear infinite;
@@ -230,7 +230,7 @@ nav {
 
 .pulse {
   -webkit-animation-name: blur;
-  -webkit-animation-duration: 2500ms;
+  -webkit-animation-duration: 1500ms;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
 }

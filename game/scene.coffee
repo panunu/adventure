@@ -35,7 +35,14 @@ class @Scene
 
   write: (entry) -> @journal.write entry
 
-  panic: () -> $('#story').addClass('shake')
+  shake: () ->
+    @normalize()
+    $('#story').addClass 'shake'
+
+  pulse: () ->
+    @normalize()
+    $('#story').addClass 'pulse'
+
   normalize: () -> $('#story').attr('class', '')
 
   # Internals

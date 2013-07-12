@@ -1,7 +1,7 @@
 # You can make editorial notes like this.
 
 @act1 = ->
-  @background 'black'
+  @background '#222'
   @foreground 'white'
   @icon ''
 
@@ -23,11 +23,11 @@
             @button 'Continue', 'act1_feelings'
 
 @act1_feelings = ->
-  @background '#550000'
+  @background '#330000'
   @foreground 'white'
   @icon 'eye'
 
-  @panic()
+  @shake()
 
   @think 'What was that..?', =>
     @think 'This is not good. Not good at all.', =>
@@ -39,5 +39,12 @@
   @background 'black'
 
   @normalize()
+  @pulse()
 
   @says 'Creature', '* growls *', =>
+    @think 'It is close...', =>
+      @think 'I hope it goes away...', =>
+        @says 'Creature', '* moves away *', =>
+          @normalize()
+          @final @think 'I think I made it.', =>
+            @button 'Restart', 'act1'

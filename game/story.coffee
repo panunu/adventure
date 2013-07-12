@@ -20,4 +20,23 @@
       @says 'Stranger', 'You have always been here. You just have not noticed.', =>
         @say 'But I...', =>
           @final @think 'I can not find the right words.', =>
-            @button 'Continue', 'act1'
+            @button 'Continue', 'act1_feelings'
+
+@act1_feelings = ->
+  @background '#550000'
+  @foreground 'white'
+  @icon 'eye'
+
+  @panic()
+
+  @think 'What was that..?', =>
+    @think 'This is not good. Not good at all.', =>
+      @final @think 'Should I run? I might also be able to hide myself...', =>
+        @button 'Hide', 'act1_hide'
+
+@act1_hide = ->
+  @background 'black'
+
+  @normalize()
+
+  @says 'Creature', '* growls *', =>

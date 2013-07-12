@@ -31,9 +31,7 @@ class @Scene
       .fadeIn()
     false
 
-  button: (label, goto) ->
-    $('#action')
-      .append('<a href="#" data-goto="' + goto + '">' + label + '</a>')
+  button: (label, goto) -> $('#action').append('<a href="#" data-goto="' + goto + '">' + label + '</a>')
 
   write: (entry) -> @journal.write entry
 

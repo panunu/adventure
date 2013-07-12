@@ -33,6 +33,7 @@
     @think 'This is not good. Not good at all.', =>
       @final @think 'Should I run? I might also be able to hide myself...', =>
         @button 'Hide', 'act1_hide'
+        @button 'Run', 'act1'
 
 @act1_hide = ->
   @background 'black'

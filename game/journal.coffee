@@ -3,10 +3,10 @@ class @Journal
 
   constructor: (@entries) ->
     for entry in @entries
-      $('#journal .content').prepend '<p>' + entry + '</p>'
+      $('#journal .entries').prepend '<p>' + entry + '</p>'
 
   write: (content) ->
     @entries.unshift content
-    $('#journal .content').prepend '<p>' + content + '</p>'
+    $('#journal .entries').prepend '<p>' + content + '</p>'
 
   getSerializable: () -> @entries

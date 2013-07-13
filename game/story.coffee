@@ -5,15 +5,19 @@
   @foreground 'white'
   @icon ''
 
+  @normalize()
+
   @final @display 'Act 1', =>
-    @write 'My journey begins.'
     @bag.set 'lus', 'grande'
+    @write 'My journey begins.'
     @button 'Start', 'act1_intro'
 
 @act1_intro = ->
   @background '#3F4037'
   @foreground '#E3E5C7'
   @icon 'road'
+
+  @write 'I do not remember how I ended up here. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.'
 
   @think 'I feel confused.', =>
     @say 'How did I end up here?', =>

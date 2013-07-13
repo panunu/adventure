@@ -8,18 +8,21 @@
     <link rel="stylesheet" type="text/css" href="/css/icons.css"/>
     <link rel="stylesheet" type="text/less" href="/css/animations.less"/>
     <link rel="stylesheet" type="text/less" href="/css/style.less"/>
+    <link rel="stylesheet" type="text/less" href="/css/tipsy.css"/>
     <link href="http://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Headland+One" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Mr+De+Haviland" rel="stylesheet" type="text/css">
 </head>
 <body>
     <nav>
-        <div id="loader">
-            <i class="icon-spinner-2"></i>
+        <div id="loader" title="Loading...">
+            <span class="rotate">
+                <i class="icon-spinner-2"></i>
+            </span>
         </div>
 
         <div>
-            <a id="toggle-journal" href="#">
+            <a id="toggle-journal" href="#" title="Journal">
                 <i class="icon-book"></i>
             </a>
         </div>
@@ -40,7 +43,13 @@
     </article>
 
     <aside id="journal">
-        <div class="content"></div>
+        <div class="content">
+            <a href="#" class="close">
+                <i class="icon-cancel-circle"></i>
+            </a>
+
+            <div class="entries"></div>
+        </div>
     </aside>
 
     <script type="text/javascript" src="/js/jquery-2.0.3.min.js"></script>
@@ -48,11 +57,13 @@
     <script type="text/javascript" src="/js/less.min.js"></script>
     <script type="text/javascript" src="/js/coffee-script.js"></script>
     <script type="text/javascript" src="/js/jstorage.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.tipsy.js"></script>
     <script type="text/coffeescript" src="/game/scene.coffee"></script>
     <script type="text/coffeescript" src="/game/story.coffee"></script>
     <script type="text/coffeescript" src="/game/database.coffee"></script>
     <script type="text/coffeescript" src="/game/journal.coffee"></script>
     <script type="text/coffeescript" src="/game/bag.coffee"></script>
+    <script type="text/coffeescript" src="/game/support.coffee"></script>
     <script type="text/coffeescript" src="/game/main.coffee"></script>
 </body>
 </html>

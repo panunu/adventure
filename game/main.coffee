@@ -20,6 +20,10 @@ $(document).ready ->
     e.preventDefault()
     $('#journal').toggle()
 
+  $('#journal .close').click (e) ->
+    e.preventDefault()
+    $('#journal').hide()
+
   $('#action').on 'click', 'a', (e) ->
     e.preventDefault()
     scene = eval($(this).attr('data-goto'))

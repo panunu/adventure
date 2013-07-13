@@ -34,14 +34,13 @@ body {
 nav {
   position: absolute;
   top: 25px;
-  right: 10px;
+  right: 0;
 
   font-size: 0.75em;
 
   div {
     float: left;
-    width: auto;
-    height: 20px;
+    height: 25px;
     margin-right: 25px;
   }
 
@@ -60,7 +59,11 @@ nav {
     text-decoration: none;
   }
 
-  #loader {
+  #loader .rotate {
+    float: left;
+    width: auto;
+    height: 20px;
+
     -webkit-animation: spin 1s linear infinite;
     -moz-animation: spin 1s linear infinite;
     animation: spin 1s linear infinite;
@@ -187,8 +190,8 @@ nav {
   left: 50%;
 
   font-family: "Mr De Haviland", cursive;
-  text-align: center;
   font-size: 32px;
+  color: black;
 
   opacity: 0.95;
   z-index: 40;
@@ -205,9 +208,47 @@ nav {
     left: -50%;
 
     background: white;
+    background-image: url('../img/paper.png');
     border-radius: @radius;
 
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+
+    .entries {
+      text-align: center;
+
+      opacity: 0.75;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      font-size: 0.5em;
+      text-align: right;
+      text-decoration: none;
+      color: black;
+
+      opacity: 0.25;
+      -webkit-transition: opacity 1s;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+  }
+}
+
+.tipsy {
+  margin-top: 5px;
+
+  font-family: "Fjalla One", Helvetica, Arial;
+  font-size: 0.9rem !important;
+  text-transform: uppercase;
+
+  .tipsy-inner {
+    border-radius: @radius;
   }
 }
 

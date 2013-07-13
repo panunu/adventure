@@ -1,4 +1,6 @@
 class @Scene
+  sound: null
+
   constructor: (@script, @database, @bag, @journal) ->
 
   # Mechanics
@@ -44,6 +46,14 @@ class @Scene
     $('#story').addClass 'pulse'
 
   normalize: () -> $('#story').attr('class', '')
+
+  loop: (file) ->
+    Scene.sound = new Howl { urls: ['sounds/' + file], loop: true }
+    Scene.sound.fade(0, 1, 5000).play()
+    Scene.sound
+
+  stop: () ->
+    Scene.sound.fade(100, 0, 2500, -> Scene.sound.stop())
 
   # Internals
 

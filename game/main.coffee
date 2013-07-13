@@ -42,14 +42,16 @@ $(document).ready ->
 
   # Lights, camera, action!
 
+  ### TODO: Commented out for development purposes.
   if not database.hasSavedGame()
-    $('loader').hide()
+    $('#loader').hide()
   else
     savegame = database.load()
     scene    = savegame.scene
     bag      = savegame.bag
     journal  = savegame.journal
     $('#loader').delay(2000).fadeOut(1000)
+  ###
 
   $('body').addClass 'initialized'
 

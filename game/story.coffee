@@ -33,6 +33,8 @@
 
   @shake()
 
+  @loop 'sample.wav'
+
   @think 'What was that..?', =>
     @think 'This is not good. Not good at all.', =>
       @final @think 'Should I run? I might also be able to hide myself...', =>
@@ -51,4 +53,5 @@
         @says 'Creature', '* moves away *', =>
           @normalize()
           @final @think 'I think I made it.', =>
+            @stop()
             @button 'Restart', 'act1'

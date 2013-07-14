@@ -13,7 +13,6 @@ class @Database
     $.jStorage.set 'scene',   scene
     $.jStorage.set 'bag',     @serialize(bag)
     $.jStorage.set 'journal', @serialize(journal)
-    # TODO: Journal.
 
   hasSavedGame: -> if $.jStorage.get 'saved' then true else false
 

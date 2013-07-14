@@ -44,7 +44,6 @@
 @act1_hide = ->
   @background 'black'
 
-  @normalize()
   @pulse()
 
   @says 'Creature', '* growls *', =>

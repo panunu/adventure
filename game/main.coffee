@@ -8,7 +8,7 @@ $(document).ready ->
 
   # Initialize the scene
 
-  scene = act1
+  scene = 'act1'
   step  = 0
 
   # Bindings
@@ -26,7 +26,7 @@ $(document).ready ->
 
   $('#action').on 'click', 'a', (e) ->
     e.preventDefault()
-    scene = eval($(this).attr('data-goto'))
+    scene = $(this).attr('data-goto')
     step = 0
     play()
 
@@ -35,14 +35,14 @@ $(document).ready ->
   play = =>
     if step is 0
       database.save(scene, bag, journal)
-      scene = (new Scene(scene, database, bag, journal)).start()
+      console.log scene
+      scene = (new Scene(eval(scene), database, bag, journal)).start()
       step++
     else if scene != false
       scene = scene()
 
   # Lights, camera, action!
 
-  ### TODO: Commented out for development purposes.
   if not database.hasSavedGame()
     $('#loader').hide()
   else
@@ -51,7 +51,6 @@ $(document).ready ->
     bag      = savegame.bag
     journal  = savegame.journal
     $('#loader').delay(2000).fadeOut(1000)
-  ###
 
   $('body').addClass 'initialized'
 

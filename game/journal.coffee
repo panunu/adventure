@@ -5,8 +5,8 @@ class @Journal
     for entry in @entries
       $('#journal .entries').prepend '<p>' + entry + '</p>'
 
-  write: (content) ->
-    @entries.unshift content
-    $('#journal .entries').prepend '<p>' + content + '</p>'
+  write: (entry) ->
+    @entries.unshift entry
+    $('#journal .entries').prepend '<p>' + entry + '</p>'
 
   getSerializable: () -> @entries
